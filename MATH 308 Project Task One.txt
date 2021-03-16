@@ -1,0 +1,23 @@
+Generating two large prime numbers:
+For generating these two large prime numbers, a random number generator has to used and then the generated number will undergo a primality test. Another document will be created containing the complete analysis of the restrictions imposed over the number of bits of the prime number, the choice of the primality test, the required time for each operation to happen, and the error percentage of the created functions. The document might contain some suggestions of optimizations. This document is restricted over defining the required functions. 
+
+1- Random Number Generator (RNG)
+The task that this function is supposed to perform is generating random large numbers without imposing any restrictions over it (Constricting it to be prime will be in the next step). This will be done using the linear congruential generator (LCG). This function generates pseudorandomized numbers (this is because they are not purely random, as it follows a certain pattern). The function takes the following form: 
+xn+1 = (axn + c) mod m
+where xn+1 is the following number, xn is the preceding number, a is the multiplier, c is the increment, and modulus m. The following restrictions should be considered in our choices: 
+2 <= a < m
+0 <= c < m
+0 <= x0 < m
+Consequently, the generated xn's domain will be 0 <= xn <m. 
+In this function, we are supposed to input each of x0 (the initial value which is also called the seed), the multiplier, the increment and the modulus. The generated numbers could then be stored within an array and combined to give a one full large number. Note that in most cases, the generated pattern of numbers be repeated at some intervals, for example 2..4..5..3..1..9..2..4..5..3..1..9.. and so on. This comes from the fact that this is a recursion formula that depends mainly on the seed that the formula is fed. Short repeated patterns of numbers could result in weakening the strength of the prime numbers and easily factored out, such a problematic property has to be solved out. The solution depends upon our choice of the seed, the multiplier and the increment. For example: for this certain combination where a= 231 – 1, m = 75, c = 0, we get 231-2 digits before any repetition of the digits’ pattern. The generated number will be stored in an array as mentioned, then combined to form one number. This process will be in a while loop that will work out in parallel with the primality test function. The primality test function will test out. If yes, then the number will be stored in (p). The process will then repeat (with different a,c,m, x0)and if the generated number passes the test, the number will be stored in (q). 
+
+Possible refining of the function: (provided extra time)
+i- Is there a possible way where the 4 inputs are automated without having us inputting them? 
+
+2- Primality test (Probabilistic):
+In the analysis document, a complete explanation will be given why the primality test has to probabilistic and not deterministic. For now, we will ensure that a probabilistic test will be used where when fed a number: 
+* If the number is not prime, then we are certain that the number is composite.
+* If the number is prime, then we are uncertain whether it is actually prime or not, but the chances that it is prime is real high, and the error margin is ultimately small. 
+The task that this function is supposed to perform is to test whether the generated randomized numbers are prime or not. Many probabilistic algorithms have been imposed ………….
+
+
